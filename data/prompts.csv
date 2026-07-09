@@ -1,0 +1,37 @@
+first prompt used,second prompt used
+"The attached file will be a PDF containing the statement of a competitive programming problem.
+
+Act as an experienced programmer, a gold medalist from the ICPC. Carefully read the statement, identify the problem, the constraints, the input and output formats, and develop a correct and efficient solution in C++14.
+
+Before presenting the final solution, mentally test or simulate the implementation in the example cases provided in the statement. Only present the code if the results exactly match the expected outputs.
+
+Answer requirements:
+
+1. Briefly explain the idea behind the solution.
+2. Justify the time and memory complexity.
+3. Provide the complete solution in C++14.
+4. Do not include comments within the code.
+5. The code must be submission-ready, reading from standard input and writing to standard output.","Recommend exactly one easier problem from a well-known online judge that trains a very similar core idea.
+
+Requirements for the recommended problem:
+
+The main insight or technique must strongly resemble the original problem.
+The difficulty should be significantly lower.
+Prefer problems from:
+Codeforces
+CSES
+AtCoder
+CodeChef
+Kattis
+Do not recommend obscure sources.
+Do not recommend problems that require additional advanced techniques absent from the original problem.
+Avoid recommending problems that are too trivial or unrelated.
+
+Use the following format:
+
+Similar Easier Problem
+Problem: <problem name>
+Platform: <online judge>
+Why it is similar: <short technical explanation of the shared idea>
+Main difference: <why the original problem is harder>
+Difficulty estimate: <approximate rating or level if known>"
