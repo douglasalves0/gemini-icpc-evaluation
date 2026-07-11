@@ -1,4 +1,4 @@
-problem,model used,solved_at (date),model solution output,generated code (cpp),OJ Verdict,execution time (ms),Analysis,model output for problem proposed,proposed problem,problem is similar?,solution
+problem,model used,solved_at (date),model solution output,generated code (cpp),OJ Verdict,execution time (ms),time limit (ms),% time used,Analysis,model output for problem proposed,proposed problem,problem is similar?,solution
 Clean Streets,Gemini 3.1 Pro,May/25/2026 22:49UTC-3,"### Main idea
 
 The payment per street for cleaner $i$ is defined as $p_i$. Since the hourly rate, let's call it $R = p_i / H_i$, must be the identical for all hired cleaners , the total payment is computed as $R \times \sum (s_i \cdot H_i)$. Our goal is to minimize this product. For cleaner $i$ to be eligible for hiring, their payment per street must satisfy $L_i \le R \cdot H_i \le U_i$, which bounds the hourly rate to $L_i/H_i \le R \le U_i/H_i$.
@@ -268,7 +268,7 @@ int main() {
     }
 
     return 0;
-}",AC,640,"The model did a really great job on this solution. It simplified the search for the optimal cost per hour of the workers by simply using a sweep line to pass through the possible values that the payment per hour could be, and, for each of these payments p, check if p is feasible.
+}",AC,640,1000,64,"The model did a really great job on this solution. It simplified the search for the optimal cost per hour of the workers by simply using a sweep line to pass through the possible values that the payment per hour could be, and, for each of these payments p, check if p is feasible.
 
 In order to make this checking fast, it maintains a segment tree that answers query(0, i) with the number of streets that all workers with Hs value until i can cover, so we can binary search this value and get the answer.","If you want to master this specific technique—maintaining a dynamic set of items and quickly finding the sum of the fastest/smallest ones—there is a perfect problem to train with.
 
@@ -527,7 +527,7 @@ int main() {
     cout << ans << ""\n"";
 
     return 0;
-}",AC,171,"Really nice solution. It have proposed a solution that transforms the lines into segments composed by the x's where the lines intersects the parabolla. The key observation is that after this simplification two lines l1 and l2 intersects on the playground if and only if the segment [l1_xl, l1_xr] does not contains [l2_xl, l2_xr], and also the inverse. If they have a intersection that is not contained by one of the two, it is a pair that we want.
+}",AC,171,1000,"17,1","Really nice solution. It have proposed a solution that transforms the lines into segments composed by the x's where the lines intersects the parabolla. The key observation is that after this simplification two lines l1 and l2 intersects on the playground if and only if the segment [l1_xl, l1_xr] does not contains [l2_xl, l2_xr], and also the inverse. If they have a intersection that is not contained by one of the two, it is a pair that we want.
 
 After doing this simplification this problem of counting how many segments parcially intersect is a known problem that can be solved by fenwick or segmentation tree.","Similar Easier Problem
 
@@ -919,7 +919,7 @@ int main() {
     cout << ""\n"";
 
     return 0;
-}",AC,62,"The main observation to solve it was to know a very specific type of dp where you have two sets of choices to make, choices are not independent between each other and you want to compute a final answer that depends on these sets. I never have heard of that in my life, but it is a nice thing to know.
+}",AC,62,1000,"6,2","The main observation to solve it was to know a very specific type of dp where you have two sets of choices to make, choices are not independent between each other and you want to compute a final answer that depends on these sets. I never have heard of that in my life, but it is a nice thing to know.
 
 I don't think I have too much to say here but I learned about that by seeing the gemini solution to this problem and also by solving the proposed problem that is quite similar.","**Similar Easier Problem**
 **Problem:** Relay Race (Problem 213C)
@@ -1316,7 +1316,7 @@ int main() {
     cout << ans << ""\n"";
 
     return 0;
-}",AC,203,"Nice one, two main ideas are used here. The first one to discover the period of a fraction x/y in base b is the multiplicative order. The another one is the idea of using mobius inversion to compute the sum over all pairs faster.","### Similar Easier Problem
+}",AC,203,5000,"4,06","Nice one, two main ideas are used here. The first one to discover the period of a fraction x/y in base b is the multiplicative order. The another one is the idea of using mobius inversion to compute the sum over all pairs faster.","### Similar Easier Problem
 
 **Problem:** Finite or not? (983A)
 **Platform:** Codeforces
@@ -1799,7 +1799,7 @@ int main() {
     
     cout << ans << ""\n"";
     return 0;
-}",AC,4359,"Good solution by the model. It proposed for us to use a minimum cut algorithm to solve the problem by mading an observation. For each cut of the network flow, its value is a linear function along time if ploted on a graph. So for each possible cut we have one lines in a graph by time t. If we choose some t, the answer will be the line with the minimum value at that point, and this is a common problem where the lines form a concavity. in order to solve this we can simply binary search the answer by using the concavity fact. and for each value t we guessed on the binary search, run a flow algorithm to discover the minimum cut.
+}",AC,4359,6000,"72,65","Good solution by the model. It proposed for us to use a minimum cut algorithm to solve the problem by mading an observation. For each cut of the network flow, its value is a linear function along time if ploted on a graph. So for each possible cut we have one lines in a graph by time t. If we choose some t, the answer will be the line with the minimum value at that point, and this is a common problem where the lines form a concavity. in order to solve this we can simply binary search the answer by using the concavity fact. and for each value t we guessed on the binary search, run a flow algorithm to discover the minimum cut.
 
 Also, good to say I had a lot of doubts about its first explanation, but after more conversation I was able to understands the whys and whats of the solution.","### Similar Easier Problem
 
@@ -2067,7 +2067,7 @@ int main() {
     }
 
     return 0;
-}",AC,328,The solution is very straightforward if you know euler path and sos dp. Since we have only 21 possible dominoes we can iterate over all its subsets to check if it forms a euler path. Since the problem has multiple test cases we also need to precompute the answer for each subset and then use a sos dp to answer the test cases.,"Similar Easier Problem
+}",AC,328,1500,"21,86666667",The solution is very straightforward if you know euler path and sos dp. Since we have only 21 possible dominoes we can iterate over all its subsets to check if it forms a euler path. Since the problem has multiple test cases we also need to precompute the answer for each subset and then use a sos dp to answer the test cases.,"Similar Easier Problem
 Problem: The Necklace (Problem 10054)
 Platform: UVa Online Judge
 Why it is similar: It models a set of two-sided pieces (beads with two colors, which are structurally identical to dominoes) as undirected edges in a graph where the vertices represent the colors. Determining if the pieces can be arranged into a single continuous chain requires verifying the existence of an Eulerian tour by checking that the graph is connected and validating the degree constraints of each vertex.
@@ -2262,7 +2262,7 @@ int main() {
     }
     
     return 0;
-}",AC,46,"By doing some simplification of the problem we arise in the fact that $v_2(N) \ge w+l+1 - v_2\left(\binom{w+l}{w}\right)$. With this, the problem becomes understanding what is the value of $v_2\left(\binom{w+l}{w}\right)$, and this becomes an easier problem by using kummer's theorem (I've learned on this problem)
+}",AC,46,500,"9,2","By doing some simplification of the problem we arise in the fact that $v_2(N) \ge w+l+1 - v_2\left(\binom{w+l}{w}\right)$. With this, the problem becomes understanding what is the value of $v_2\left(\binom{w+l}{w}\right)$, and this becomes an easier problem by using kummer's theorem (I've learned on this problem)
 
 With this, we can build a digit dp to solve the problem by looking at the number of carries on the w + l binary sum.","**Similar Easier Problem**
 
@@ -2490,7 +2490,7 @@ int main() {
     cout << "" "" << min_Q << ""\n"";
 
     return 0;
-}",AC,156,"One of the observations is that you can brute-force all 256 combinations of B. Other is that for each position from -7 to n-1 it only makes sense to do the operation once or none, so this enable us to create a definition for each ci that turns out to be a recurrence relation that can simply be solved by guessing its first 7 terms and solving for the rest. So we also do a brute force on its first terms and after that we solve for each equation the value of x[i] (0 if we do not make an operation on position i and 1 otherwise). With this we have one solution, by guessing all combinations of B and these 7 terms we can calculate the best answer.","**Similar Easier Problem**
+}",AC,156,1500,"10,4","One of the observations is that you can brute-force all 256 combinations of B. Other is that for each position from -7 to n-1 it only makes sense to do the operation once or none, so this enable us to create a definition for each ci that turns out to be a recurrence relation that can simply be solved by guessing its first 7 terms and solving for the rest. So we also do a brute force on its first terms and after that we solve for each equation the value of x[i] (0 if we do not make an operation on position i and 1 otherwise). With this we have one solution, by guessing all combinations of B and these 7 terms we can calculate the best answer.","**Similar Easier Problem**
 
 **Problem:** Menagerie (ABC 055 D)
 **Platform:** AtCoder
@@ -2904,7 +2904,7 @@ int main() {
 
     cout << K << ""\n"";
     return 0;
-}",AC,500,"The main observation is that in a permutation we have multiple independent cycles. The idea here is for each cycle discover two variables, pc and p. pc being the number of shifts you have to do for the permutation be matching and p being the size of the period of the cycle. it turns out that k should be congruent to pc modulo p. if we create one equation of this type for each independent cycle we can solve these congruences using CRT. also, pc and p can be easily found using KMP.","It makes total sense to want to isolate the Chinese Remainder Theorem and study it directly. Focusing on the math part without the distraction of graph theory and string matching is a great way to master it. Here is a problem that perfectly isolates that core mechanic:
+}",AC,500,1000,50,"The main observation is that in a permutation we have multiple independent cycles. The idea here is for each cycle discover two variables, pc and p. pc being the number of shifts you have to do for the permutation be matching and p being the size of the period of the cycle. it turns out that k should be congruent to pc modulo p. if we create one equation of this type for each independent cycle we can solve these congruences using CRT. also, pc and p can be easily found using KMP.","It makes total sense to want to isolate the Chinese Remainder Theorem and study it directly. Focusing on the math part without the distraction of graph theory and string matching is a great way to master it. Here is a problem that perfectly isolates that core mechanic:
 
 Similar Easier Problem
 Problem: Two Arithmetic Progressions (710D)
@@ -3537,7 +3537,7 @@ int main() {
     }
 
     return 0;
-}",WA,N/A,N/A,N/A,N/A,N/A,N/A
+}",WA,N/A,1500,#VALUE!,N/A,N/A,N/A,N/A,N/A
 Diverse T-Shirts,Gemini 3.1 Pro,Jun/16/2026 23:31UTC-3	,"### Main idea
 
 The problem asks us to find a maximum subset of T-shirts such that no two selected models share the same text color or the same background color. We are given the incompatibility matrix $A$, where $A_{i,j}=1$ if two T-shirts share at least one color.
@@ -3802,7 +3802,7 @@ int main() {
 
     cout << max_match << ""\n"";
     return 0;
-}",AC,46,"Nice solution. The main idea is to recognize that the incompatibility matrix is actually the line graph of an unknown bipartite graph, where each T-shirt corresponds to an edge between a text color and a background color. The interesting part is reconstructing this original graph: since the graph is bipartite, every maximal clique in the line graph comes from a star centered at some color, so we can recover the colors by identifying these cliques.
+}",AC,46,500,"9,2","Nice solution. The main idea is to recognize that the incompatibility matrix is actually the line graph of an unknown bipartite graph, where each T-shirt corresponds to an edge between a text color and a background color. The interesting part is reconstructing this original graph: since the graph is bipartite, every maximal clique in the line graph comes from a star centered at some color, so we can recover the colors by identifying these cliques.
 
 After this reconstruction, the problem becomes much more standard. We want the largest set of T-shirts such that no two share a color, which is exactly the problem of finding a maximum matching in the recovered bipartite graph. I found the reduction quite elegant because the original statement gives only a compatibility matrix, but the solution manages to uncover the hidden structure behind it and reduce everything to a well-known matching algorithm.
 ","### Similar Easier Problem
@@ -4057,7 +4057,7 @@ int main() {
     cout << ""\n"";
 
     return 0;
-}",AC,203,"Nice observation. The key idea is that although the total number of inversions of a permutation can be quadratic, we only need to compute the DP for the first ~200 values because (K <= 4 * 10^18). After capping the DP values, every larger count becomes equivalent for our purposes, which reduces the complexity from something impossible to O(N).
+}",AC,203,500,"40,6","Nice observation. The key idea is that although the total number of inversions of a permutation can be quadratic, we only need to compute the DP for the first ~200 values because (K <= 4 * 10^18). After capping the DP values, every larger count becomes equivalent for our purposes, which reduces the complexity from something impossible to O(N).
 
 Once we know how many inversions the answer must have, constructing the permutation is quite straightforward. We build it from left to right and, for each position, try every possible unused number in lexicographical order. Choosing the v-th smallest available number contributes exactly v inversions, so we can use the DP table to know how many permutations each choice generates, skip entire branches of the search, and eventually find the correct one. A Fenwick tree is used only to maintain the available numbers and retrieve the v-th smallest efficiently.
 ","**Similar Easier Problem**
@@ -4383,7 +4383,7 @@ int main() {
     cout << Ans << ""\n"";
 
     return 0;
-}",AC,859,"Nice offline solution.
+}",AC,859,5500,"15,61818182","Nice offline solution.
 
 The key observation is that instead of processing every query after every update, we can look at the problem in reverse. Every update of a base value only affects the queries that happen after it, so we process all events backwards and compute the contribution of each update directly to the final answer.
 
@@ -4696,7 +4696,7 @@ int main() {
 
     cout << ""*\n"";
     return 0;
-}",TLE,2000,N/A,N/A,N/A,N/A,N/A
+}",TLE,2000,2000,100,N/A,N/A,N/A,N/A,N/A
 Cindy's Christmas Challenge,Gemini 3.1 Pro,Jun/26/2026 23:01UTC-3,"### Main idea
 
 The problem asks for the minimum edit distance to transform a substring $S[L..U]$ of length $n$ into a target string of $R$ copies of 'R' followed by $B$ copies of 'B', using insertions, deletions, and replacements.
@@ -5002,7 +5002,7 @@ int main() {
     }
     
     return 0;
-}",AC,171,"Nice solution. Instead of using a standard edit distance DP, it derives a closed formula for the cost by fixing the split point k, where the prefix is transformed into 'R's and the suffix into 'B's.
+}",AC,171,1500,"11,4","Nice solution. Instead of using a standard edit distance DP, it derives a closed formula for the cost by fixing the split point k, where the prefix is transformed into 'R's and the suffix into 'B's.
 
 After expanding the min and max expressions, the cost becomes linear for each piece. The important observation is that there are only three possible forms of the expression, all involving prefix sums. Thus, by preprocessing three sparse tables, each query can be answered by checking only a constant number of interval intersections after a binary search for the breakpoints.","## Similar Easier Problem
 
@@ -5353,7 +5353,7 @@ int main() {
     else cout << ans << ""\n"";
 
     return 0;
-}",WA,750,N/A,N/A,N/A,N/A,N/A
+}",WA,750,10000,"7,5",N/A,N/A,N/A,N/A,N/A
 Latam++,Gemini 3.1 Pro,Jun/23/2026 11:50UTC-3,"### Main idea
 
 A valid Latam++ expression requires correct alternating sequences of variables and operators wrapped in perfectly balanced parentheses. We can determine a valid expression by looking at local character-to-character transitions and the global parenthesis balance.
@@ -5602,7 +5602,7 @@ int main() {
 
     cout << total_valid << ""\n"";
     return 0;
-}",AC,46,"The model did a pretty good job on this solution. The main idea was to reduce the problem to checking local character transitions and, inside each maximal valid segment, use prefix balance of parentheses to count the substrings that can actually form a correct Latam++ expression. That is a nice simplification because it turns a grammar-like problem into something you can handle with a linear scan and some bookkeeping on the balance levels.
+}",AC,46,250,"18,4","The model did a pretty good job on this solution. The main idea was to reduce the problem to checking local character transitions and, inside each maximal valid segment, use prefix balance of parentheses to count the substrings that can actually form a correct Latam++ expression. That is a nice simplification because it turns a grammar-like problem into something you can handle with a linear scan and some bookkeeping on the balance levels.
 
 What I think is the most important part here is the observation that a substring is valid only if it never breaks the allowed transitions and the parenthesis balance never goes below the starting level. After that, the counting becomes a classic prefix-sum style solution, where we keep frequencies of valid starts by balance and update them as we move. It is a clean O(n) approach and fits well the constraints.
 ","Similar Easier Problem
@@ -5902,7 +5902,7 @@ int main() {
     }
 
     return 0;
-}",TLE,500,N/A,N/A,N/A,N/A,N/A
+}",TLE,500,500,100,N/A,N/A,N/A,N/A,N/A
 Elevated Profits,Gemini 3.1 Pro,Jun/23/2026 12:13UTC-3,"### Main idea
 
 The problem requires finding an optimal sequence of visiting cities on a tree to maximize the profit formula $\sum_{i=1}^{N} i \times p_i$ , starting at city $R$. Because the road network has N-1 transfers connecting all N cities, it forms a spanning tree. You can visit any unvisited city as long as it is adjacent to a previously visited one.
@@ -6150,7 +6150,7 @@ int main() {
     cout << ans << ""\n"";
 
     return 0;
-}",AC,671,"Really nice solution. It uses a greedy view over the tree, where each city or component is treated like a block that should be scheduled according to its average popularity value. The main observation is that, if a child block has a smaller average than its parent block, then it is always better to merge that child into the parent and place it as early as possible in the final tour, because smaller values should receive smaller multipliers in the sum. After that, the problem becomes basically a repeated merging process guided by the minimum average block available.
+}",AC,671,2000,"33,55","Really nice solution. It uses a greedy view over the tree, where each city or component is treated like a block that should be scheduled according to its average popularity value. The main observation is that, if a child block has a smaller average than its parent block, then it is always better to merge that child into the parent and place it as early as possible in the final tour, because smaller values should receive smaller multipliers in the sum. After that, the problem becomes basically a repeated merging process guided by the minimum average block available.
 
 To make this fast, the solution combines DSU with a priority queue. The DSU is used to keep track of which component each city belongs to after merges, and the heap always gives the block with the smallest average that is currently eligible to be merged. This is a clean approach because every merge is local but the global order is still optimized by the greedy criterion. The final complexity is good, around (O(N log N)), which is enough for this kind of tree optimization problem.
 ","### Similar Easier Problem
@@ -6616,7 +6616,7 @@ int main() {
     }
     
     return 0;
-}",AC,734,"This was a pretty good solution by the model. The main idea is to turn the profit expression into something easier to handle and then process the clients offline, so each query only needs to look at the clients that were already inserted at that point. To make this fast, it builds a segment tree over time and, inside each node, keeps only the Pareto-optimal clients, which is a nice pruning step because any dominated client can never be part of the best answer.
+}",AC,734,1000,"73,4","This was a pretty good solution by the model. The main idea is to turn the profit expression into something easier to handle and then process the clients offline, so each query only needs to look at the clients that were already inserted at that point. To make this fast, it builds a segment tree over time and, inside each node, keeps only the Pareto-optimal clients, which is a nice pruning step because any dominated client can never be part of the best answer.
 
 After that, the problem inside each node becomes much cleaner because the profit function has a monotone structure, so the best client for the suppliers moves in an ordered way. That is why divide and conquer optimization works here. I think the solution is elegant because it combines skyline filtering, offline processing, and monotonicity in a way that makes the whole thing feasible under the constraints.","### Similar Easier Problem
 
@@ -6842,7 +6842,7 @@ int main() {
 
     cout << dp[M - 1] << ""\n"";
     return 0;
-}",AC,125,"Quite difficult to understand what the model was saying, had to do a lot of replies for it to explain me in a fully comprehensible way.
+}",AC,125,500,25,"Quite difficult to understand what the model was saying, had to do a lot of replies for it to explain me in a fully comprehensible way.
 
 The idea is to perform a sweep line passing through the specific points L[i] - 1, L[i] and R[i] in increasing order and to maintain two variables while passing. One to keep the current best answer to the current point we are in the sweep line, and the other one is some heap (set or pq) in order to keep the values of the current opened intervals. For each point we arise on the sweep line we try to get the open interval on the heap that gives us the maximum profit. For each interval we currently are we store:
 
@@ -6958,7 +6958,7 @@ int main() {
     cout << k << ""\n"";
 
     return 0;
-}",AC,171,"Simple idea, impressible that is fourth more difficult problem of the contest.
+}",AC,171,600,"28,5","Simple idea, impressible that is fourth more difficult problem of the contest.
 
 We are going to solve the problem in reverse order, beginning from the target permutation and going to the identity permutation. With this, the operation is like:
 
@@ -7247,7 +7247,7 @@ int main() {
     cout << ""\n"";
 
     return 0;
-}",AC,140,"Straightforward solution.
+}",AC,140,1500,"9,333333333","Straightforward solution.
 
 The idea is to simplify the initial equation by writing the ncks in the extended form in order to transform the expression in a convolution that can be solved in n log n.","Similar Easier Problem
 Problem: 993E - Nikita and Order Statistics
@@ -7523,7 +7523,7 @@ int main() {
     }
 
     return 0;
-}",AC,1187,"Elegant solution, even if it looks complicated at first glance. The main trick is to turn the profit expression into something that can be processed offline, so we do not need to check every pair directly. After rewriting the formula, the valid clients for each supplier become a monotone structure, and this allows us to keep only the useful points in a skyline. Then, by placing the queries in a segment tree over time, each query is split into only a few canonical intervals, so we can process the answer without rebuilding everything from scratch.
+}",AC,1187,5000,"23,74","Elegant solution, even if it looks complicated at first glance. The main trick is to turn the profit expression into something that can be processed offline, so we do not need to check every pair directly. After rewriting the formula, the valid clients for each supplier become a monotone structure, and this allows us to keep only the useful points in a skyline. Then, by placing the queries in a segment tree over time, each query is split into only a few canonical intervals, so we can process the answer without rebuilding everything from scratch.
 
 Inside each node, the remaining candidates behave nicely enough to use divide and conquer optimization, because the best client index moves monotonically when the supplier changes. This is the key observation that makes the whole solution fast, since it avoids a quadratic comparison between all suppliers and all clients. In the end, the segment tree + skyline + monotonic optimization combination gives an efficient offline algorithm with around (O((C+M)\log^2 C)) complexity, which is exactly what is needed here.
 ","Similar Easier Problem
@@ -8200,7 +8200,7 @@ int main() {
 
     cout << fixed << setprecision(10) << ans << ""\n"";
     return 0;
-}",WA,31,N/A,N/A,N/A,N/A,N/A
+}",WA,31,8000,"0,3875",N/A,N/A,N/A,N/A,N/A
 Kind Baker,Gemini 3.1 Pro,Jun/29/2026 22:35UTC-3,"### Main idea
 
 To achieve exactly $K$ different types of cake pieces using the minimum number of machine runs, we must perform $T = \lceil \log_2 K \rceil$ runs.
@@ -8343,7 +8343,7 @@ int main() {
     }
 
     return 0;
-}",AC,62,"Nice constructive solution.
+}",AC,62,300,"20,66666667","Nice constructive solution.
 
 The key observation is that if we use the machine T times, each cell is identified by a T-bit mask indicating in which operations it was painted, therefore we can generate at most 2^T different piece types. This immediately gives the lower bound of ceil(log2(K)) operations.
 
@@ -8677,7 +8677,7 @@ int main() {
     }
     
     return 0;
-}",AC,375,"Very clean solution.
+}",AC,375,2500,15,"Very clean solution.
 
 The main idea here is that, instead of checking every player sequentially, we only need to know whether some player in a range satisfies (A[j]X+B[j]>Y). Build a segment tree over the players, where each node stores the upper convex hull of the lines in its interval. 
 
@@ -8980,7 +8980,7 @@ int main() {
     }
 
     return 0;
-}",AC,46,"Had a tough time understanding this one.
+}",AC,46,500,"9,2","Had a tough time understanding this one.
 
 The first statement is that we can arbitrarily root the smaller tree and try to map its root to every vertex of the larger tree. 
 
@@ -9318,7 +9318,7 @@ int main() {
     
     cout << ans << ""\n"";
     return 0;
-}",AC,671,"Kind of a cool solution.
+}",AC,671,1000,"67,1","Kind of a cool solution.
 
 For each of the three midpoint conditions can be rewritten as a linear combination of one point from each polygon. This transforms the problem into three point-in-convex-polygon queries over Minkowski sums: (A+B), (2A-B), and (2B-A). Since scaling, negation and Minkowski sums preserve convexity, these regions can be precomputed once. Then each query reduces to checking membership in the three convex polygons using binary search.","### Similar Easier Problem
 
@@ -9469,7 +9469,7 @@ int main() {
     }
 
     return 0;
-}",TLE,1500,N/A,N/A,N/A,N/A,N/A
+}",TLE,1500,1500,100,N/A,N/A,N/A,N/A,N/A
 Listing Tedious Paths,Gemini 3.1 Pro,Jun/29/2026 23:19UTC-3,"### Main idea
 
 Any edge in a tree splits it into two disjoint components, say $A$ and $B$. A path connecting two vertices $u$ and $v$ crosses this edge if and only if one vertex is in component $A$ and the other is in component $B$.
@@ -9748,7 +9748,7 @@ int main() {
     cout << ""\n"";
 
     return 0;
-}",AC,171,"Interesting application of DSU on Tree.
+}",AC,171,1000,"17,1","Interesting application of DSU on Tree.
 
 Every edge splits the tree into two connected components. For each color c, if one component contains x occurrences of c, then exactly x * (S[c] - x) valid paths of this color cross the edge.
 
@@ -9952,7 +9952,7 @@ int main() {
     
     cout << ans << ""\n"";
     return 0;
-}",AC,31,"Clean solution.
+}",AC,31,250,"12,4","Clean solution.
 
 Alice loses if and only if the xor of the three piles is zero. Therefore, instead of counting winning positions directly, we count the number of triples satisfying (x[1] + x[2] = x[3]) inside the given ranges and subtract this value from the total number of possible triples.
 
@@ -10252,7 +10252,7 @@ int main() {
     cout << ans2 / 2 << ""."" << (ans2 % 2 == 0 ? 0 : 5) << ""\n"";
 
     return 0;
-}",AC,171,"Very elegant graph transformation.
+}",AC,171,1000,"17,1","Very elegant graph transformation.
 
 The key observation is that the dual graph of the triangulation is a tree. Any triangle with degree smaller than three has at least one boundary edge, therefore it is forced into the answer. The only triangles that may be omitted are those with degree three, but two adjacent degree three triangles cannot both be omitted since their common edge would remain uncovered.
 
@@ -10545,7 +10545,7 @@ int main() {
     }
 
     return 0;
-}",AC,562,"Very clever combination of Parallel Binary Search and Inclusion-Exclusion.
+}",AC,562,2000,"28,1","Very clever combination of Parallel Binary Search and Inclusion-Exclusion.
 
 The main observation is that the total distance traveled by each participant is monotonic, allowing the first valid round to be found with Parallel Binary Search. The difficult part is efficiently computing how much a participant has moved after a given prefix of rounds. This is done by applying Inclusion-Exclusion over the participant's distinct prime factors, reducing the condition (gcd(i, c[q]) > 1) to queries over precomputed square-free divisors. The result is an almost linear solution up to a logarithmic factor.
 ","Similar Easier Problem
@@ -10941,7 +10941,7 @@ int main() {
     
     cout << total_ways << ""\n"";
     return 0;
-}",AC,265,"Cool application of linear recurrences.
+}",AC,265,15000,"1,766666667","Cool application of linear recurrences.
 
 The main observation is that, although N is huge, the DP only depends on the previous ten states, making it a constant-order linear recurrence. Instead of storing scalar values, each DP state is represented by a polynomial whose coefficients encode the energy spent. The recurrence is then evaluated in O(log N), replacing the linear iteration over positions with exponentiation modulo the characteristic polynomial. This reduces an otherwise impossible DP to a logarithmic-time solution.
 ","### Similar Easier Problem
@@ -11385,7 +11385,7 @@ int main() {
 
     cout << max_H << ""\n"";
     return 0;
-}",AC,593,"Nice case analysis.
+}",AC,593,2000,"29,65","Nice case analysis.
 
 The behavior of the solution depends entirely on the sign of X, making it natural to split the problem into two independent cases. For X >= 0, failure points can only move to the right, allowing the improvement of each starting position to be precomputed and accumulated with a difference array. For X < 0, failure points may move left, requiring a right-to-left sweep where active intervals are maintained with a lazy segment tree over compressed prefix sums. Both cases run in O(N log N).","It makes perfect sense to want to break down a problem of this magnitude. The original Daily Turnovers problem is a beast because it layers multiple concepts—monotonic stacks, difference arrays, and a complex sweep using a Lazy Segment Tree. To truly master the foundational data structure pattern used in the first half of the solution, it is best to isolate it.
 
@@ -11788,7 +11788,7 @@ int main() {
 
     cout << ans << ""\n"";
     return 0;
-}",AC,640,"Instead of reasoning about continuous movement directly, the solution discretizes the problem into states (x,y,t) and observes that only transitions between adjacent integer coordinates need to be checked. Each cloud is rasterized into unit cells, reducing collision detection to a constant number of cell queries on the relative movement between the cyclist and the cloud. With this representation, a standard BFS over space and time finds the minimum travel time.
+}",AC,640,3500,"18,28571429","Instead of reasoning about continuous movement directly, the solution discretizes the problem into states (x,y,t) and observes that only transitions between adjacent integer coordinates need to be checked. Each cloud is rasterized into unit cells, reducing collision detection to a constant number of cell queries on the relative movement between the cyclist and the cloud. With this representation, a standard BFS over space and time finds the minimum travel time.
 ","### Similar Easier Problem
 
 **Problem:** Monsters
@@ -12054,7 +12054,7 @@ int main() {
     cout << final_ans << ""\n"";
 
     return 0;
-}",AC,1203,"Very elegant interval DP optimization.
+}",AC,1203,10000,"12,03","Very elegant interval DP optimization.
 
 The solution models the problem as a minimax interval DP, where each state is determined by the current interval of possible faulty segments and the ship position, which can only be at one of the interval's endpoints. The naive O(N^3) transition is avoided by exploiting the monotonicity of the two competing DP values, yielding a monotonic crossover point between them. This threshold can be maintained incrementally, while monotonic queues provide the optimal transition in amortized O(1), reducing the overall complexity to O(N^2).
 ","### Similar Easier Problem
@@ -12265,7 +12265,7 @@ int main() {
 
     cout << total_pairs - conv_count / 2 << ""\n"";
     return 0;
-}",TLE,7000,N/A,N/A,N/A,N/A,N/A
+}",TLE,7000,7000,100,N/A,N/A,N/A,N/A,N/A
 Generator Tree,Gemini 3.1 Pro,Jul/01/2026 13:15UTC-3,"### Main idea
 
 The problem asks us to determine for each tree $T$ how many other trees in the input collection can ""generate"" it. A tree $T_{generator}$ generates $T$ if $T$ can be partitioned into connected components that are all isomorphic to $T_{generator}$.
@@ -12798,7 +12798,7 @@ int main() {
     }
     cout << ""\n"";
     return 0;
-}",AC,1984,"Cool use of tree properties.
+}",AC,1984,5000,"39,68","Cool use of tree properties.
 
 The solution exploits the fact that, for a fixed component size, the decomposition of a tree is unique: the only valid cut edges are those whose subtree size is a multiple of the component size. After identifying the components, tree hashing is used to canonically represent their structure and verify that they are all isomorphic. This allows every candidate generator size to be checked efficiently by combining subtree sizes with canonical tree hashes.
 ","### Similar Easier Problem
@@ -13085,7 +13085,7 @@ int main() {
 
     cout << ans << ""\n"";
     return 0;
-}",AC,296,"The palindrome constraints induce an equivalence relation between positions of the string, so the problem boils down to counting the connected components that are not fixed by an existing digit. The challenge is to process all these equalities efficiently: instead of generating them explicitly, the solution models palindromic intervals as equalities between substrings and their reverses and handles them with the sparse-table DSU trick. By propagating the constraints down the levels, all dependencies are eventually reduced to character-level equalities, from which the answer can be computed directly.
+}",AC,296,3000,"9,866666667","The palindrome constraints induce an equivalence relation between positions of the string, so the problem boils down to counting the connected components that are not fixed by an existing digit. The challenge is to process all these equalities efficiently: instead of generating them explicitly, the solution models palindromic intervals as equalities between substrings and their reverses and handles them with the sparse-table DSU trick. By propagating the constraints down the levels, all dependencies are eventually reduced to character-level equalities, from which the answer can be computed directly.
 ","Similar Easier Problem
 **Problem:** KAIBUNsyo (ABC 206 D)
 **Platform:** AtCoder
@@ -13294,7 +13294,7 @@ int main() {
 
     cout << dp[N] << ""\n"";
     return 0;
-}",AC,265,"The solution progressively rewrites the problem into counting increasing sequences under upper bounds, eventually obtaining a DP whose states are values of a family of polynomials. The crucial ingredient is to represent these polynomials in the binomial basis, where taking discrete derivatives and integrals becomes particularly simple. This turns the recurrence into a sequence of coefficient shifts and updates, allowing the entire dynamic program to be computed in (O(N^2)) time and only linear memory.
+}",AC,265,1500,"17,66666667","The solution progressively rewrites the problem into counting increasing sequences under upper bounds, eventually obtaining a DP whose states are values of a family of polynomials. The crucial ingredient is to represent these polynomials in the binomial basis, where taking discrete derivatives and integrals becomes particularly simple. This turns the recurrence into a sequence of coefficient shifts and updates, allowing the entire dynamic program to be computed in (O(N^2)) time and only linear memory.
 ","**Similar Easier Problem**
 
 **Problem:** Between Two Arrays (ABC 222 D)
@@ -13661,7 +13661,7 @@ int main() {
     cout << ans << ""\n"";
 
     return 0;
-}",AC,234,"The problem can be reformulated as counting the spanning trees in the switching class of the original graph, since contacting a subset of leaders simply complements the edges crossing the corresponding cut. Exploiting the fact that every tree has at least one leaf, it is enough to guess a leaf (u) and its neighbor (v), which uniquely determines the switching state of all remaining vertices. Enumerating all pairs ((u,v)) therefore generates every valid tree.
+}",AC,234,250,"93,6","The problem can be reformulated as counting the spanning trees in the switching class of the original graph, since contacting a subset of leaders simply complements the edges crossing the corresponding cut. Exploiting the fact that every tree has at least one leaf, it is enough to guess a leaf (u) and its neighbor (v), which uniquely determines the switching state of all remaining vertices. Enumerating all pairs ((u,v)) therefore generates every valid tree.
 
 The optimized solution replaces explicit graph construction with bitsets, allowing edge counts and adjacency queries to be computed with cheap bitwise operations. Instead of deduplicating the generated trees, it stores a normalized version of the switching assignments, reducing the overall complexity by a factor of the machine word size.
 ","### Similar Easier Problem
@@ -13945,7 +13945,7 @@ int main() {
     cout << ans << ""\n"";
 
     return 0;
-}",AC,62,"The entire solution stands on converting the optimization problem into a minimum cut formulation. Each player is represented by a chain of nodes encoding the possible positions from (1) to (M), and a sufficiently large constant is introduced to transform the objective from maximization into minimization. Choosing a position for a player then becomes equivalent to cutting exactly one edge in the corresponding chain.
+}",AC,62,500,"12,4","The entire solution stands on converting the optimization problem into a minimum cut formulation. Each player is represented by a chain of nodes encoding the possible positions from (1) to (M), and a sufficiently large constant is introduced to transform the objective from maximization into minimization. Choosing a position for a player then becomes equivalent to cutting exactly one edge in the corresponding chain.
 
 ","### Similar Easier Problem
 
@@ -14341,7 +14341,7 @@ int main() {
     cout << max_ans << ""\n"";
 
     return 0;
-}",AC,1218,"The geometric part of the problem hides a tree structure. Since the convex polygons are pairwise non-intersecting, they define a hierarchy of nested regions, which can be represented as an inclusion tree where crossing a polygon corresponds to traversing an edge.
+}",AC,1218,3500,"34,8","The geometric part of the problem hides a tree structure. Since the convex polygons are pairwise non-intersecting, they define a hierarchy of nested regions, which can be represented as an inclusion tree where crossing a polygon corresponds to traversing an edge.
 
 Once this reformulation is made, the cost of placing Michael and Lincoln depends only on depths and LCAs in the tree. For a fixed ancestor (c), the optimal placement is obtained by taking Lincoln in the deepest subtree of (c) and Michael in the second deepest one, yielding a simple tree DP.
 
@@ -14544,7 +14544,7 @@ int main() {
     }
 
     return 0;
-}",AC,31,"The problem admits a surprisingly clean algebraic formulation. By assigning a binary variable to each player indicating their group, the parity constraints on the number of friends inside the same group can be rewritten as a system of linear equations over (GF(2)).
+}",AC,31,250,"12,4","The problem admits a surprisingly clean algebraic formulation. By assigning a binary variable to each player indicating their group, the parity constraints on the number of friends inside the same group can be rewritten as a system of linear equations over (GF(2)).
 
 Once this transformation is made, deciding whether a valid partition exists reduces to checking the consistency of the system with Gaussian elimination. Since (P \le 100), the cubic complexity easily fits within the limits.","### Similar Easier Problem
 
@@ -15010,7 +15010,7 @@ int main() {
     cout << ansA << "" "" << ansB << ""\n"";
 
     return 0;
-}",AC,203,"The crucial step is to characterize when two concatenations coincide. If (A_i+B_j=A_k+B_l), then one of the strings from university A must be a prefix of the other, and the remaining suffix (S) must simultaneously appear as a prefix relation between two teams from university B.
+}",AC,203,2000,"10,15","The crucial step is to characterize when two concatenations coincide. If (A_i+B_j=A_k+B_l), then one of the strings from university A must be a prefix of the other, and the remaining suffix (S) must simultaneously appear as a prefix relation between two teams from university B.
 
 This observation turns the problem into finding all strings (S) that arise both as a suffix between two teams of A and as a prefix between two teams of B. Tries are used to enumerate these relationships efficiently, while polynomial hashing provides an (O(1)) representation of the candidate strings. Intersecting the two sets identifies every team involved in a collision, and the remaining teams are precisely the peculiar ones.","### Similar Easier Problem
 
@@ -15373,7 +15373,7 @@ int main() {
 
     cout << (ans1 + ans2) % MOD << ""\n"";
     return 0;
-}",TLE,2000,N/A,N/A,N/A,N/A,N/A
+}",TLE,2000,2000,100,N/A,N/A,N/A,N/A,N/A
 Divisibility Dance,Gemini 3.1 Pro,Jul/01/2026 23:06UTC-3,"### Main idea
 
 The problem can be divided into two independent parts: finding the valid final pairings and counting the valid sequences of dance steps to reach them.
@@ -15594,11 +15594,12 @@ int main() {
     cout << ans << ""\n"";
 
     return 0;
-}",AC,421,"The solution naturally splits into two independent tasks: determining which final pairings are possible and counting how many sequences of moves lead to each of them.
+}",AC,421,1000,"42,1","The solution naturally splits into two independent tasks: determining which final pairings are possible and counting how many sequences of moves lead to each of them.
 
 The counting part can be modeled as a random walk on a cycle of size (N), since each rotation changes the relative displacement between men and women by (\pm P_i). Exploiting the symmetry of this process yields closed formulas for the number of sequences ending at displacement (0) and at any non-zero displacement.
 
-To characterize the valid displacements, the condition (A_i+B_{i-v}\equiv \text{const}\pmod M) is rewritten in terms of adjacent differences. This transforms the problem into searching for cyclic occurrences of one sequence inside another, which can be done in linear time with KMP after duplicating one of the arrays. Combining both parts gives an (O(N+\log K)) solution.","### Similar Easier Problem
+To characterize the valid displacements, the condition (A_i+B_{i-v}\equiv \text{const}\pmod M) is rewritten in terms of adjacent differences. This transforms the problem into searching for cyclic occurrences of one sequence inside another, which can be done in linear time with KMP after duplicating one of the arrays. Combining both parts gives an (O(N+\log K)) solution.
+","### Similar Easier Problem
 
 **Problem:** MUH and Cube Walls (471D)
 **Platform:** Codeforces
@@ -15829,7 +15830,7 @@ int main() {
 
     cout << fixed << setprecision(2) << min_sunlight << ""\n"";
     return 0;
-}",AC,750,"The decisive insight is that the objective function is piecewise concave. Between two consecutive angles where a segment starts or stops receiving sunlight, the set of illuminated edges remains fixed, and the total sunlight can be written as a linear combination of (\cos\alpha) and (\sin\alpha). Since its second derivative is always non-positive, the minimum cannot lie in the interior of such an interval.
+}",AC,750,1000,75,"The decisive insight is that the objective function is piecewise concave. Between two consecutive angles where a segment starts or stops receiving sunlight, the set of illuminated edges remains fixed, and the total sunlight can be written as a linear combination of (\cos\alpha) and (\sin\alpha). Since its second derivative is always non-positive, the minimum cannot lie in the interior of such an interval.
 
 As a consequence, it suffices to evaluate the function only at the (2N) critical angles where (\cos(\beta_i+\alpha)=0). After sorting the segment directions and duplicating the array to handle the circular structure, prefix sums and binary search allow each candidate angle to be processed in (O(\log N)), leading to an overall (O(N\log N)) solution.
 ","Here is a recommendation for an easier problem that beautifully captures the core mechanic of your solution without the calculus overhead.
