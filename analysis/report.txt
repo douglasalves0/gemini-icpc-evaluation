@@ -1,0 +1,128 @@
+
+========================================================================
+1. OVERALL GEMINI 3.1 PRO PERFORMANCE
+========================================================================
+Total problems evaluated : 50
+Accepted (AC)            : 42  (84.0%)
+Wrong Answer (WA)        :  3  (6.0%)
+Time Limit Exceeded (TLE):  5  (10.0%)
+Failure rate (WA+TLE)    :  8  (16.0%)
+
+========================================================================
+2. PROBLEMS PER YEAR & GEMINI SUCCESS BY YEAR
+========================================================================
+Problems per year:
+  2020: 5
+  2021: 10
+  2022: 10
+  2023: 10
+  2024: 5
+  2025: 10
+
+Verdict per year:
+verdict  AC  WA  TLE  total  AC %
+year                             
+2020      4   0    1      5  80.0
+2021      9   0    1     10  90.0
+2022      9   0    1     10  90.0
+2023      7   2    1     10  70.0
+2024      4   0    1      5  80.0
+2025      9   1    0     10  90.0
+
+========================================================================
+3. TOPIC (TAG) APPEARANCE FREQUENCY
+========================================================================
+Distinct tags          : 20
+Total tag mentions     : 134
+Avg tags per problem   : 2.68
+
+Tag                          # problems  % of problems  % of mentions
+---------------------------------------------------------------------
+Data Structures                      15         30.0%          11.2%
+Dynamic Programming                  15         30.0%          11.2%
+Graph Theory                         11         22.0%           8.2%
+Computational Geometry                9         18.0%           6.7%
+Bitwise Operations                    9         18.0%           6.7%
+Mathematics                           9         18.0%           6.7%
+Binary Search                         8         16.0%           6.0%
+Number Theory                         7         14.0%           5.2%
+Trees                                 7         14.0%           5.2%
+String Algorithms                     6         12.0%           4.5%
+Sweep-line                            5         10.0%           3.7%
+Network Flow                          5         10.0%           3.7%
+Greedy                                5         10.0%           3.7%
+Combinatorics                         5         10.0%           3.7%
+Optimization Techniques               5         10.0%           3.7%
+Exhaustive Search / Backtracking          4          8.0%           3.0%
+Constructive Algorithms               4          8.0%           3.0%
+Coordinate Compression                3          6.0%           2.2%
+Square Root Decomposition             1          2.0%           0.7%
+Divide and Conquer                    1          2.0%           0.7%
+
+========================================================================
+4. HUMAN DIFFICULTY OF THE PROBLEM SET
+========================================================================
+Solved-by % (live contestants):
+  mean 0.73%  median 0.36%  min 0.00%  max 4.57%
+  problems solved by 0% of contestants: 15
+
+Acceptance rate % (accepted / attempts in contest):
+  mean 21.24%  median 12.50%  min 0.00%  max 100.00%
+
+========================================================================
+5. DIFFICULTY TIERS & GEMINI PERFORMANCE PER TIER
+========================================================================
+Tier thresholds on solved-by %: Hard <= 0.12%  <  Medium <= 0.72%  <  Easy
+
+verdict     AC  WA  TLE  total  Gemini AC %
+difficulty                                 
+Easy        15   1    1     17         88.2
+Medium      16   0    0     16        100.0
+Hard        11   2    4     17         64.7
+
+========================================================================
+6. RUNTIME EFFICIENCY (% OF TIME LIMIT USED)
+========================================================================
+All problems     : mean 33.6%  median 18.4%  min 0.4%  max 100.0%
+Accepted only    : mean 27.1%  median 18.0%  min 1.8%  max 93.6%
+AC solutions using < 25% of the limit: 26 / 42  (62%) — comfortable headroom
+AC solutions using > 75% of the limit: 1 / 42  (2%) — near the edge
+
+========================================================================
+7. GEMINI vs HUMAN DIFFICULTY (do hard-for-humans problems trip it up?)
+========================================================================
+Mean human solved-by % of problems Gemini GOT RIGHT (AC): 0.76%
+Mean human solved-by % of problems Gemini GOT WRONG      : 0.57%
+
+Interpretation: if the 'wrong' group has a LOWER human solved-%, then Gemini
+tends to fail precisely on the problems that were also hardest for humans.
+
+========================================================================
+8. GEMINI SUCCESS RATE BY TOPIC (tags on >= 3 problems)
+========================================================================
+Tag                           #prob   #AC    AC %
+-------------------------------------------------
+Dynamic Programming              15    15    100%
+Mathematics                       9     9    100%
+Number Theory                     7     7    100%
+String Algorithms                 6     6    100%
+Sweep-line                        5     5    100%
+Coordinate Compression            3     3    100%
+Data Structures                  15    14     93%
+Bitwise Operations                9     8     89%
+Binary Search                     8     7     88%
+Trees                             7     6     86%
+Graph Theory                     11     9     82%
+Network Flow                      5     4     80%
+Greedy                            5     4     80%
+Combinatorics                     5     4     80%
+Constructive Algorithms           4     3     75%
+Computational Geometry            9     6     67%
+Optimization Techniques           5     3     60%
+Exhaustive Search / Backtracking      4     1     25%
+
+========================================================================
+9. SECONDARY TASK — 'PROPOSE A SIMILAR PROBLEM'
+========================================================================
+Proposals judged 'similar'      : 42 / 50  (84%)
+Proposals blank / not evaluated : 8 / 50  (16%)
